@@ -10,4 +10,18 @@ def encrypt(text, shift):
         shifted_letter = (alphabet.index(letter) + shift) % len(alphabet) #Find the index of letter in alphabet, add shift to that number. Use % to wrap around alphabet is shift higher than 25
         encrypted_text += alphabet[shifted_letter] # Adding shifted letter to encrypted text variable
     print(f"The encoded text is {encrypted_text.strip()}")
-encrypt(text, shift)
+
+def decode(text, shift):
+  decrypted_text = " "
+
+  for letter in text:
+    shifted_letter = (alphabet.index(letter) - shift) % len(alphabet)
+    decrypted_text += alphabet[shifted_letter]
+  print(f"The decoded text is {decrypted_text.strip()}")
+
+if direction == "encode":
+  encrypt(text, shift)
+elif direction == "decode":
+  decode(text, shift)
+else:
+  print("Invalid input.")
