@@ -1,8 +1,4 @@
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-#User input
-direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
-text = input("Type your message:\n").lower()
-shift = int(input("Type the shift number:\n"))
 
 def encrypt(text, shift):
     encrypted_text = " "
@@ -19,9 +15,19 @@ def decode(text, shift):
     decrypted_text += alphabet[shifted_letter]
   print(f"The decoded text is {decrypted_text.strip()}")
 
-if direction == "encode":
-  encrypt(text, shift)
-elif direction == "decode":
-  decode(text, shift)
-else:
-  print("Invalid input.")
+should_continue = True
+while should_continue == True:
+#User input
+    direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+    text = input("Type your message:\n").lower()
+    shift = int(input("Type the shift number:\n"))
+
+    if direction == "encode":
+        encrypt(text, shift)
+    elif direction == "decode":
+        decode(text, shift)
+    else:
+        print("Invalid input.")
+    result = input("Type 'yes' if you want to continue. Otherwise type 'no'")
+    if result == 'no':
+        should_continue = False
